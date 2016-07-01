@@ -31,14 +31,14 @@
             <div ng-repeat="produto in vmProdutos.produtos | orderBy: vmProdutos.ordem" class="col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
                     <div class="text-center" style="padding: 5px;">
-                        <a href="#">
+                        <a href="#!/produto/{{ produto.id }}">
                             <img ng-src="{{ produto.urlFoto }}" alt="" style="display: inline; width: 90%; margin: 0px auto;">
                         </a>
                     </div>
                     <div class="caption">
                         <h5 class="pull-right" style="color: red;">{{ produto.preco | currency }}</h5>
                         <h5>
-                            <a href="#">{{ produto.nome }}</a>
+                            <a href="#!/produto/{{ produto.id }}">{{ produto.nome }}</a>
                         </h5>
                         <p>{{ produto.descricao | limitTo:90 }} ...</p>
                     </div>

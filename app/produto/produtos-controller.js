@@ -2,14 +2,14 @@ angular
     .module("lojaApp.produto")
     .controller("ProdutosController", ProdutosController);
 
-ProdutosController.$inject = ["$http"];
+ProdutosController.$inject = ["$http", "ProdutoFactory"];
 
-function ProdutosController($http){
+function ProdutosController($http, ProdutoFactory){
     var vm = this;
     vm.produtos = [];
     vm.ordem = "preco";
 
-    $http.get(URL_REST + "/produtos")
+    ProdutoFactory.buscarTodosProdutos()
         .then(function(response){
             vm.produtos = response.data;
         })
