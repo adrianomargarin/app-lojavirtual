@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="lojaApp">
 
 <!--Cor da barra do navegador em dispositivos móveis-->
 <meta name="theme-color" content="#111e44">
@@ -39,14 +39,20 @@
     <!--App-->
     <script src="staticfiles/js/util.js"></script>
 
+    <script src="app/modules.js"></script>
+    <script src="app/routes.js"></script>
+
+    <script src="app/produto/produtos-controller.js"></script>
+    <script src="app/produto/produto-factory.js"></script>
+
     <link rel="icon" type="image/png" href="staticfiles/img/favicon.png" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
@@ -72,7 +78,7 @@
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="produtos.html">Produtos</a>
+                        <a href="/#!/produtos">Produtos</a>
                     </li>
                     <li>
                         <a href="carrinho.html">Carrinho</a>
@@ -96,7 +102,7 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div ng-include="'staticfiles/app/produto/produtos.html'"></div>
+        <div ng-view></div>
 
         <!-- Footer -->
         <footer>
