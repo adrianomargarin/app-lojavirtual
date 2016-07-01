@@ -7,7 +7,8 @@ ProdutoFactory.$inject = ["$http"];
 function ProdutoFactory($http){
     var factory = {
         buscarTodosProdutos: buscarTodosProdutos,
-        buscarProdutoId: buscarProdutoId
+        buscarProdutoId: buscarProdutoId,
+        buscarAvaliacoesProduto: buscarAvaliacoesProduto
     };
 
     return factory;
@@ -18,5 +19,9 @@ function ProdutoFactory($http){
 
     function buscarProdutoId(id){
         return $http.get(URL_REST + "/produto/" + id);
+    }
+
+    function buscarAvaliacoesProduto(id){
+        return $http.get(URL_REST + "/avaliacoes/" + id);
     }
 }
