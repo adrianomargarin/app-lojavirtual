@@ -8,7 +8,8 @@ function ProdutoFactory($http){
     var factory = {
         buscarTodosProdutos: buscarTodosProdutos,
         buscarProdutoId: buscarProdutoId,
-        buscarAvaliacoesProduto: buscarAvaliacoesProduto
+        buscarAvaliacoesProduto: buscarAvaliacoesProduto,
+        enviarAvaliacao: enviarAvaliacao
     };
 
     return factory;
@@ -23,5 +24,9 @@ function ProdutoFactory($http){
 
     function buscarAvaliacoesProduto(id){
         return $http.get(URL_REST + "/avaliacoes/" + id);
+    }
+
+    function enviarAvaliacao(avaliacao){
+        return $http.put(URL_REST + "/avaliacao", avaliacao)
     }
 }

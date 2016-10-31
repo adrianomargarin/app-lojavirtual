@@ -43,16 +43,10 @@
                         <p>{{ produto.descricao | limitTo:90 }} ...</p>
                     </div>
                     <div class="ratings">
-                        <span class="pull-right">{{ produto.avaliacoes }}
-                            <span>avaliações</span>
-                        </span>
-                        <span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                        </span>
+                        <avaliacoes-produto
+                            avaliacoes="{{ produto.avaliacoes }}"
+                            nota="{{ produto.nota }}">
+                        </avaliacoes-produto>
                     </div>
                 </div>
             </div>

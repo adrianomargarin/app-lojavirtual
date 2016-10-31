@@ -11,76 +11,62 @@
                 <h4>{{ vmProduto.produto.nome }}</h4> {{ vmProduto.produto.descricao }}
             </div>
             <div class="ratings">
-                <span class="pull-right">5
-                    <span>avaliações</span>
-                </span>
-                <span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                </span>
+                <avaliacoes-produto
+                    avaliacoes="{{ vmProduto.produto.avaliacoes }}"
+                    nota="{{ vmProduto.produto.nota }}">
+                </avaliacoes-produto>
             </div>
             <div class="text-center" style="margin: 10px;">
-                <a class="btn btn-success">Adicionar ao carrinho</a>
+                <a ng-click="vmProduto.adicionarAoCarrinho()" class="btn btn-success">Adicionar ao carrinho</a>
             </div>
         </div>
         <h4>Avaliações</h4>
         <div class="well">
             <form>
+
                 <div class="form-group">
                     <label for="nota">Nota</label>
-                    <label>
-                        <input type="radio" name="nota" value="1">1</label>
-                        <label>
-                            <input type="radio" name="nota" value="2">2</label>
-                            <label>
-                                <input type="radio" name="nota" value="3">3</label>
-                                <label>
-                                    <input type="radio" name="nota" value="4">4</label>
-                                    <label>
-                                        <input type="radio" name="nota" value="5">5</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="titulo">Título</label>
-                                        <input type="text" name="titulo" value="" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="descricao">Descrição</label>
-                                        <textarea name="descricao" value="" class="form-control"></textarea>
-                                    </div>
-                                </form>
-                                <div class="text-right">
-                                    <a class="btn btn-primary">Enviar avaliação</a>
-                                </div>
+                    <label><input ng-model="vmProduto.avaliacao.nota" type="radio" name="nota" value="1">1</label>
+                    <label><input ng-model="vmProduto.avaliacao.nota" type="radio" name="nota" value="2">2</label>
+                    <label><input ng-model="vmProduto.avaliacao.nota" type="radio" name="nota" value="3">3</label>
+                    <label><input ng-model="vmProduto.avaliacao.nota" type="radio" name="nota" value="4">4</label>
+                    <label><input ng-model="vmProduto.avaliacao.nota" type="radio" name="nota" value="5">5</label>
+                </div>
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input ng-model="vmProduto.avaliacao.titulo" type="text" name="titulo" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea ng-model="vmProduto.avaliacao.descricao" name="descricao" value="" class="form-control"></textarea>
+                </div>
+            </form>
+            <div class="text-right">
+                <a class="btn btn-primary" ng-click="vmProduto.enviarAvaliacao()">Enviar avaliação</a>
+            </div>
 
-                                <hr>
+            <hr>
 
-                                <div class="row">
-                                    <div class="col-md-12" ng-repeat="avaliacao in vmProduto.avaliacoes  ">
-                                        <span class="pull-left">
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                        </span>
-                                        <span class="pull-left" style="padding-left: 10px;">
-                                            <strong>{{ avaliacao.titulo }}</strong>
-                                        </span>
-                                        <span class="pull-right">
-                                            por {{ avaliacao.usuario.nome }} em {{ avaliacao.data | date }}
-                                        </span>
-                                        <div class="clearfix">
-                                        </div >
-                                            <p>{{ avaliacao.descricao }}</p>
-                                        <hr>
-                                    </div>
-                                </div>
+            <div class="row">
+                <div class="col-md-12" ng-repeat="avaliacao in vmProduto.avaliacoes  ">
+                    <avaliacoes-produto
+                        nota="{{ avaliacao.nota }}">
+                    </avaliacoes-produto>
+                    <span class="pull-left" style="padding-left: 10px;">
+                        <strong>{{ avaliacao.titulo }}</strong>
+                    </span>
+                    <span class="pull-right">
+                        por {{ avaliacao.usuario.nome }} em {{ avaliacao.data | date }}
+                    </span>
+                    <div class="clearfix">
+                    </div >
+                        <p>{{ avaliacao.descricao }}</p>
+                    <hr>
+                </div>
+            </div>
 
-                            </div>
+        </div>
 
-                        </div>
+    </div>
 
-                    </div>
+</div>
